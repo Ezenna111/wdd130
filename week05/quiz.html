@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Quiz</title>
+    <link rel="stylesheet" href="styles/quiz.css">
+</head>
+
+<body>
+    <main class="box">
+        <h1>Basic HTML And CSS Quiz</h1>
+        <form class="box">
+            <div class="quiz-item box">
+                <label for="q1">1. What does the acronym CSS stand for?</label>
+                <input type="text" id="q1" name="q1" required>
+            </div>
+            <div class="quiz-item box">
+                <label for="q2">2. How are ID and class attributes Selected in CSS label?
+                    <textarea type="text" id="q2" name="q2" required></textarea>>
+            </div>
+            <div class="quiz-item box">
+                <label for="q3">3. Which of the following is a valid CSS?</label>
+                <select id="q3" name="q3" required>
+                    <option value="" selected disabled>Choose One</option>
+                    <option value="a">A. &lt;!-- this is a comment --&gt;</option>
+                    <option value="b">B. /*THIS I GOOD */</option>
+                    <option value="c">C. //THIS IS POWER</option>
+                </select>
+            </div>
+            <div class="quiz-item box">
+                <label for="q4">4. What is the bottom margin given this
+                    declaration?
+                </label>
+                <code class="box">margin: 10px 5px 15px;</code>
+                <input type="number" id="q4" name="q4">
+            </div>
+            <button type="submit">Submit Quiz For Grading</button>
+        </form>
+    </main>
+</body>
+
+</html>
