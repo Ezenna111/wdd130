@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
       content="Contact Kings And Priests Rafting Company. Address, phone, email, map, and form.">
+    <meta name="author" content="Eze Chinecherem">
     <title>Contact Us- Kings And Priests Rafting Company</title>
     <link rel="stylesheet" href="styles/rafting.css">
 </head>
 
 <body>
     <header>
-        <img src="Images/logo.png" alt="Rafting Logo">
+        <img src="images/logo.png" alt="Rafting Logo">
         <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
@@ -40,15 +41,15 @@
             <h2>Our Team</h2>
             <div class="employee-grid">
                 <figure>
-                    <img src="Images/employee1.jpg" alt="River Guide Ada">
+                    <img src="images/employee1.jpg" alt="River Guide Ada">
                     <figcaption>Ada - River Guide</figcaption>
                 </figure>
                 <figure>
-                    <img src="Images/employee2.jpg" alt="Manager John">
+                    <img src="images/employee2.jpg" alt="Manager John">
                     <figcaption>John - Operations Manager</figcaption>
                 </figure>
                 <figure>
-                    <img src="Images/employee3.jpg" alt="Safety Officer Mike">
+                    <img src="images/employee3.jpg" alt="Safety Officer Mike">
                     <figcaption>Mike - Safety Officer</figcaption>
                 </figure>
             </div>
@@ -65,18 +66,22 @@
 
                 <fieldset>
                     <legend>Purpose of Message:</legend>
-                    <label><input type="radio" name="purpose" value="general" required> General
+                    <label><input type="radio" id="general" name="purpose" value="general" required>
+                        General
                         Inquiry</label>
-                    <label><input type="radio" name="purpose" value="reservation"> Reservation
+                    <label><input type="radio" id="reservation" name="purpose" value="reservation">
+                        Reservation
                         Question</label>
-                    <label><input type="radio" name="purpose" value="suggestion"> Website
+                    <label><input type="radio" id="suggestion" name="purpose" value="suggestion">
+                        Website
                         Suggestion</label>
                 </fieldset>
 
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
 
-                <label><input type="checkbox" name="newsletter"> Please subscribe me to the monthly
+                <label><input type="checkbox" id="newsletter" name="newsletter"> Please subscribe me
+                    to the monthly
                     newsletter</label>
 
                 <button type="submit">Send My Inquiry</button>
@@ -88,9 +93,9 @@
     <footer>
         <p>&copy; 2026 | Kings And Priests Rafting Company | Eze Chinecherem</p>
         <nav class="socialmedia">
-            <a href="https://facebook.com"><img src="Images/facebook.webp" alt="Facebook"></a>
-            <a href="https://twitter.com"><img src="Images/twitter.jpg" alt="Twitter"></a>
-            <a href="https://instagram.com"><img src="Images/instag.webp" alt="Instagram"></a>
+            <a href="https://facebook.com"><img src="images/facebook.webp" alt="Facebook"></a>
+            <a href="https://twitter.com"><img src="images/twitter.jpg" alt="Twitter"></a>
+            <a href="https://instagram.com"><img src="images/instag.webp" alt="Instagram"></a>
         </nav>
     </footer>
 </body>
