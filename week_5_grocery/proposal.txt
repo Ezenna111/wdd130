@@ -1,0 +1,28 @@
+CSE 111 Proposal for a Student Chosen Program
+
+1. What is the title of your program?
+Biz Monitor - Small Business Profit & Sales Tracker for Port Harcourt Market
+
+2. What real-world problem will your program address or help to solve?
+Small traders in Port Harcourt markets struggle to track daily profit, loss, and stock. They write in books and make mistakes. My program will read sales from a CSV file, calculate profit in Naira, show daily sales report, low stock alert, and monthly total. It will help business owners know if they are making profit or loss.
+
+3. What will you learn from developing this program?
+I will learn how to organize a big program into small single-task functions, how to read and write CSV files, use datetime for sales dates, handle errors like missing files, format Naira currency, and write test functions with pytest to verify calculations are correct.
+
+4. What Python modules will your program use?
+csv - to read inventory and sales records
+datetime - to record sale date and generate daily/monthly reports
+math - to calculate profit percentages
+
+5. List the names of functions you will need?
+read_inventory(filename) - reads products with cost_price and selling_price into dictionary, returns dictionary
+calculate_profit(cost, selling, quantity) - calculates profit for one item, returns profit amount
+calculate_total_profit(sales_list, inventory_dict) - loops through sales and sums total profit, returns total
+get_low_stock(inventory_dict) - checks quantity < 5 and returns list of low items
+print_daily_report(sales_list, inventory_dict) - prints formatted report with Naira sign and profit/loss
+main() - gets filename, calls other functions, handles FileNotFoundError
+
+6. List the names of the test functions you will write.
+test_calculate_profit - will test profit calculation with different cost/selling/quantity, use pytest approx
+test_get_low_stock - will test that function correctly finds items with quantity less than 5
+test_read_inventory - will test reading a small CSV file into dictionary
