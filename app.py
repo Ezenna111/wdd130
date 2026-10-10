@@ -1,75 +1,63 @@
 import streamlit as st
 import pandas as pd
-from datetime import datetime
-import os
 
 st.set_page_config(page_title="Biz Monitor", page_icon="🏪")
 st.title("🏪 Biz Monitor")
-st.write("My Small Business Tracker - Tap to Edit!")
+st.caption("Start empty. Add your products.")
 
-CSV_FILE = "products.csv"
+# Empty private table for each person
+if "df" not in st.session_state:
+    st.session_state.df = pd.DataFrame(columns=["product_name", "cost_price", "selling_price", "quantity"])
 
-# Load or create file
-def load_data():
-    if os.path.exists(CSV_FILE):
-        return pd.read_csv(CSV_FILE)
-    else:
-        # Create default
-        data = {
-            "product_name": ["Garri", "Rice", "Palm Oil", "Groundnut", "Fish"],
-            "cost_price": [500, 1200, 2000, 300, 1500],
-            "selling_price": [800, 1500, 2500, 500, 2000],
-            "quantity": [20, 3, 10, 2, 8]
-        }
-        df = pd.DataFrame(data)
-        df.to_csv(CSV_FILE, index=False)
-        return df
-
-df = load_data()
-
-st.subheader("📝 Edit Your Products (Tap any cell)")
-
-# Make it editable!
-edited_df = st.data_editor(
-    df,
-    num_rows="dynamic",  # You can add new rows!
-    width='stretch',
+# THE TABLE - starts empty, you add rows
+edited = st.data_editor(
+    st.session_state.df,
+    num_rows="dynamic",
+    use_container_width=True,
     column_config={
-        "product_name": st.column_config.TextColumn("Product Name", required=True),
-        "cost_price": st.column_config.NumberColumn("Cost Price ₦", min_value=0, format="₦%d"),
-        "selling_price": st.column_config.NumberColumn("Selling Price ₦", min_value=0, format="₦%d"),
-        "quantity": st.column_config.NumberColumn("Quantity", min_value=0, step=1),
-    }
+        "product_name": st.column_config.TextColumn("Product Name"),
+        "cost_price": st.column_config.NumberColumn("Cost Price ₦", min_value=0),
+        "selling_price": st.column_config.NumberColumn("Selling Price ₦", min_value=0),
+        "quantity": st.column_config.NumberColumn("Qty", min_value=0, step=1),
+    },
+    key="editor"
 )
 
-# Save button
-if st.button("💾 Save Changes", type="primary"):
-    edited_df.to_csv(CSV_FILE, index=False)
-    st.success("Saved! Your products updated.")
+# Save for you only
+if st.button("💾 Save", type="primary"):
+    st.session_state.df = edited
     st.rerun()
 
-# Calculations
-edited_df["profit_per_item"] = edited_df["selling_price"] - edited_df["cost_price"]
-edited_df["total_profit"] = edited_df["profit_per_item"] * edited_df["quantity"]
+# CALCULATION - only shows when you add something
+if not edited.empty and len(edited.dropna(how='all')) > 0:
+    df = edited.copy()
+    df = df.dropna(subset=["product_name"])
+    df["cost_price"] = pd.to_numeric(df["cost_price"], errors='coerce').fillna(0)
+    df["selling_price"] = pd.to_numeric(df["selling_price"], errors='coerce').fillna(0)
+    df["quantity"] = pd.to_numeric(df["quantity"], errors='coerce').fillna(0)
 
-st.divider()
-st.subheader("📊 Report")
+    df["profit_each"] = df["selling_price"] - df["cost_price"]
+    df["total_cost"] = df["cost_price"] * df["quantity"]
+    df["total_sales"] = df["selling_price"] * df["quantity"]
+    df["total_profit"] = df["profit_each"] * df["quantity"]
 
-total_profit = edited_df["total_profit"].sum()
-low_stock = edited_df[edited_df["quantity"] <= 5]
+    st.divider()
+    st.subheader("📊 Full Calculation")
 
-col1, col2 = st.columns(2)
-col1.metric("Total Profit", f"₦{total_profit:,.0f}")
-col2.metric("Low Stock Items", len(low_stock))
+    total_cost = df["total_cost"].sum()
+    total_sales = df["total_sales"].sum()
+    total_profit = df["total_profit"].sum()
+    total_qty = df["quantity"].sum()
 
-# Show profit table
-display_df = edited_df.copy()
-display_df["total_profit"] = display_df["total_profit"].apply(lambda x: f"₦{x:,.0f}")
-st.dataframe(display_df, width='stretch')
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("Total Items", f"{int(total_qty)}")
+    c2.metric("Total Cost", f"₦{total_cost:,.0f}")
+    c3.metric("Total Sales", f"₦{total_sales:,.0f}")
+    c4.metric("Total Profit", f"₦{total_profit:,.0f}")
 
-if not low_stock.empty:
-    st.warning(f"⚠️ Buy more: {', '.join(low_stock['product_name'].tolist())}")
+    st.dataframe(
+        df[["product_name", "quantity", "cost_price", "selling_price", "profit_each", "total_cost", "total_sales", "total_profit"]],
+        use_container_width=True
+    )
 else:
-    st.success("All stock OK ✅")
-
-st.caption(f"Report Date: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    st.info("👆 Table is empty. Click + to add your first product. Add product_name, cost_price, selling_price, quantity - you will see full total amount immediately.")
