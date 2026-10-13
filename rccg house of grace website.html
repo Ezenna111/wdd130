@@ -1,48 +1,308 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="THE REDEEMED CHRISTIAN CHURCH OF GOD (HOUSE OF GRACE AREA)">
-    <title>The Redeemed Christian Church Of God (House Of Grace Area)</title>
+    <meta name="description"
+      content="days of service of THE REDEEMED CHRISTIAN CHURCH OF GOD - HOUSE OF GRACE AREA">
+    <meta name="author" content="Eze Chinecherem">
+    <title>RCCG HOUSE OF GRACE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header,
+        main,
+        footer {
+            width: 90%;
+            max-width: 700px;
+            margin-right: auto;
+            display: block;
+            margin-left: auto;
+            margin: 0;
+            background: rgb(25, 25, 79);
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgb(25, 25, 79);
+            padding: 5px;
+            border-bottom: 3px solid rgb(21, 48, 21);
+        }
+
+        header img {
+            width: 100px;
+            height: auto;
+            max-width: 160px;
+        }
+
+        nav {
+            display: flex;
+            gap: 13px;
+        }
+
+        nav a {
+            color: whitesmoke;
+            text-decoration: none;
+            font-weight: lighter;
+            background: rgb(21, 48, 21);
+            border-radius: 7px;
+            padding: 4px;
+            font-style: italic;
+            display: flex;
+
+        }
+
+        /* THIS IS YOUR FIX - Picture in background of H1 */
+        .rccg {
+            position: relative;
+        }
+
+        .rccg>img {
+            object-fit: cover;
+            display: block;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            height: auto;
+        }
+
+        .rccg h1 {
+            position: relative;
+            top: 60%;
+            left: 60%;
+            transform: translate(-60%, -60%);
+            width: auto;
+
+            /* Background picture for text */
+            background-image: url('images/worship.webp');
+            background-size: cover;
+            background-position: center;
+
+            /* Dark overlay so text is readable */
+            background-color: rgba(21, 48, 21, 0.7);
+            background-blend-mode: darken;
+
+            color: white;
+            padding: 25px;
+            border-radius: 40px;
+            text-align: center;
+            font-size: 17px;
+            font-style: italic;
+            font-weight: lighter;
+        }
+
+        article,
+        section,
+        p {
+            margin: 15px;
+            padding: 10px;
+        }
+
+        .history-grid,
+        .adventure-grid {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            color: aliceblue;
+        }
+
+        .adventure-grid figure img {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 6px;
+            color: aliceblue;
+        }
+
+        footer {
+            background: rgb(21, 48, 21);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .socialmedia img {
+            width: 30px;
+            height: 30px;
+            border-radius: 20%;
+        }
+
+        p {
+            color: aliceblue;
+            font-style: italic;
+            font-weight: lighter;
+            text-align: center;
+        }
+
+        article {
+            color: rgb(21, 48, 21);
+            font-style: italic;
+            line-height: 2;
+
+        }
+
+        h1 {
+            font-size: x-large;
+            font-style: italic;
+            color: aliceblue;
+            text-align: center;
+        }
+
+        .days {
+            width: 70%;
+            box-sizing: border-box;
+            background-position: center;
+            padding: 10px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            padding: 10px;
+            /* small padding = slim */
+            background-image: url('images/worship.webp');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            font-size: 25px;
+            font-weight: bold;
+            margin: 10px;
+            font-style: italic;
+            /* center it */
+
+        }
+    </style>
 </head>
 
 <body>
-    <div class="header">
-        <header>
-            <img src="images/rccg logo.png" alt="rccg logo ">
-            <nav>
-                <a href="Service days">Service Days</a>
-                <a href="Youth service days">Youth Service Days</a>
-                <a href="Calendar year"> Calendar Year</a>
-            </nav>
-        </header>
+    <header>
+        <img src="images/RCCG.png" alt="church logo">
+        <nav>
+            <a href="#service">Days Of Service</a>
+            <a href="#youth">Youth Forum</a>
+            <a href="#history">History</a>
+            <a href="#announcements">Announcements</a>
+            <a href="cal">Calendar Year</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="rccg">
+            <img src="images/worshipi.webp" alt="worship"
+              style="width: 100%; height: auto; display: block;">
+            <h1>THE REDEEMED CHRISTIAN CHURCH OF GOD (HOUSE OF GRACE AREA)</h1>
+        </div>
+
+        <article>
+            <div class="days">
+                <h2>Days of service</h2>
+            </div>
+            <img src="images/worship.webp" alt="service"
+              style="width: 100%; border-radius: 5%;  margin: 10px;">
+            <h1>
+                Sundays: In His Presence
+                <h1>Order of service</h1>
+            </h1>
+            <p>Workers meeting: 7am-8am<br>
+                Sunday school: 8am-9am <br>
+                Service starts 9am with praise,worship, sermon <br>
+                And you will go blessed, renewed and empowered..
+            </p>
+        </article>
+
+        <section class="digging" id="study">
+            <h2>Teusday Bible Study: Digging Deep.</h2>
+            <div class="history-grid">
+                <p>This is a time to come and dig deep into the word of God, a time to ask your
+                    questions and be
+                    cleared,understand and also be renewed by the word of God.</p>
+                <img src="images/study.jpg" alt="study" style="width: 100%; border-radius: 20px;"
+                  </div>
+                <p>Time: 5:30 pm <br>
+                    Every Tuesday. Come and be filled with the knowledge of God</p>
+        </section>
+        <section>
+            <div class="pray">
+                <h2>Thursday Prayers: Faith Clinic</h2>
+                <p>
+                    This is also another moment to pray, <br>
+                    Seek God's face in prayer,<br>
+                    He's always there to answer!!
+                </p>
+                <img src="images/prayer.webp" alt="" style="width: 100%; border-radius: 20px;">
+            </div>
+            <p>Time: 5:30 pm <br> Every Thursday. Come and be filled with the knowledge of God
+                through His encounters.</p>
+        </section>
+        <section>
+            <div class="nion">
+                <h2>Holy communion</h2>
+                <p>
+                    An accurate tim to dine with the Lord <br>
+                    Seek God's face in prayer,<br>
+                    And also recieve his spirit as he pours it upon us.
+                </p>
+                <img src="images/communion.webp" alt="" style="width: 100%; border-radius: 20px;">
+            </div>
+            <p>Time: 3:30 pm <br> Every first sunday of every month. Come and be filled with the
+                knowledge of God
+                and also experience him first-hand.
+            </p>
+        </section>
 
 
-    </div>
+        <section>
+            <h2>Check Our Programmes</h2>
+            <div class="adventure-grid">
+                <figure>
+                    <img src="images/worship.webp" alt="Service">
+                    <figcaption>Sunday Service</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/study.jpg" alt="Youth">
+                    <figcaption>Bible study</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/prayer.webp" alt="Bible Study">
+                    <figcaption>Prayers</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/communion.webp" alt="Praise">
+                    <figcaption>Holy Communion</figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 | RCCG House of Grace | Eze Chinecherem</p>
+        <nav class="socialmedia">
+            <a href="https://facebook.com"><img src="images/facebook.webp" alt="Facebook"></a>
+            <a href="https://twitter.com"><img src="images/twitter.jpg" alt="Twitter"></a>
+            <a href="https://instagram.com"><img src="images/instag.webp" alt="Instagram"></a>
+        </nav>
+    </footer>
 </body>
 
 </html>
-<style>
-    .header img {
-        width: 90px;
-        height: 73px;
-        max-width: 100%;
-        /* won't overflow on small phone */
-    }
-
-    nav {
-        display: flex;
-        gap: 10px
-    }
-
-    nav a {
-        color: black;
-        text-decoration: none;
-        font-weight: bold;
-        padding: 5px 10px;
-        background: rgb(169, 215, 169);
-        border-radius: 4%;
-    }
-</style>
